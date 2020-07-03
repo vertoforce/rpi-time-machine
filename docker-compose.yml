@@ -1,0 +1,24 @@
+version: '3.4'
+
+services:
+  samba:
+      image: vertoforce/samba:rpi
+      TZ: 'EST5EDT'
+    ports:
+      - "137:137/udp"
+      - "138:138/udp"
+      - "139:139/tcp"
+      - "445:445/tcp"
+    tmpfs:
+      - /tmp
+    restart: unless-stopped
+    networks:
+      - default
+    volumes:
+      - ./mnt:/mnt:z
+      - /media/secure:/media/secure:z
+    command: '-g "fruit:aapl = yes" -g "vfs objects = catia fruit streams_xattr" -g "fruit:time machine = yes" -g "durable handles = yes" -g "kernel oplocks = no" -g "kernel share modes = no" -g "posix locking = no" -g "fruit:advertise_fullsync = true" -g "smb2 leases = yes" -s "Encrypted Storage;/media/secure;yes;no;no;connor;none" -s "Local Storage;/mnt;yes;no;no;connor;none" -u "connor;${PASSWORD}" -p'
+
+
+networks:
+  default:
