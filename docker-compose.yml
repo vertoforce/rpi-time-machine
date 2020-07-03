@@ -15,8 +15,8 @@ services:
       - default
     volumes:
       - ./mnt:/mnt:z
-      - /media/secure:/media/secure:z
-    command: '-g "fruit:aapl = yes" -g "vfs objects = catia fruit streams_xattr" -g "fruit:time machine = yes" -g "durable handles = yes" -g "kernel oplocks = no" -g "kernel share modes = no" -g "posix locking = no" -g "fruit:advertise_fullsync = true" -g "smb2 leases = yes" -s "Encrypted Storage;/media/secure;yes;no;no;connor;none" -s "Local Storage;/mnt;yes;no;no;connor;none" -u "connor;${PASSWORD:-password}" -p'
+      - /media/mount:/media/mount:z
+    command: '-g "fruit:aapl = yes" -g "vfs objects = catia fruit streams_xattr" -g "fruit:time machine = yes" -g "durable handles = yes" -g "kernel oplocks = no" -g "kernel share modes = no" -g "posix locking = no" -g "fruit:advertise_fullsync = true" -g "smb2 leases = yes" -s "Encrypted Storage;/media/mount;yes;no;no;connor;none" -s "Local Storage;/mnt;yes;no;no;connor;none" -u "connor;${PASSWORD:-password}" -p'
 
 
 networks:
