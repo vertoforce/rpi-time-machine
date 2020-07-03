@@ -1,6 +1,6 @@
 # Raspberry Pi Time Machine
 
-If you're looking to set up a time machine on a raspberry pi with an external hard drive you've come to the right place.
+If you're looking to set up a time machine on a raspberry pi with an external hard drive using docker you've come to the right place.
 
 ## Setup
 
@@ -21,7 +21,8 @@ mkdir /media/mount
 
 4. Install docker and docker compose
 5. Git clone this repo
-6. Deploy this image
+6. Update the docker compose with the correct name of your mount
+7. Deploy this image
 
 ```sh
 docker swarm init
