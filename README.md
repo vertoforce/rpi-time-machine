@@ -19,6 +19,8 @@ mkdir /media/mount
 /dev/sda1 /media/mount ext4 defaults,rw 0 0
 ```
 
+**Update**: Instead of using `/dev/sda1` I recommend using the UUID incase the `sda1` changes.  You can run `blkid` to find the uuid, then replace `/dev/sda1` with `UUID=xxxx` in `/etc/fstab`
+
 4. Install docker and docker compose
 5. Git clone this repo
 6. Update the docker compose with the correct name of your mount
