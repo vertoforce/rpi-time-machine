@@ -3,7 +3,7 @@ version: '3.4'
 services:
   samba:
     # Based off the dperson/samba image, but a more recent build
-    # Change to :rpi to :amd64 to host on a 64 bit machine
+    # Change :rpi to :amd64 to host on a 64 bit machine
     image: vertoforce/samba:rpi
     ports:
       - "137:137/udp"
